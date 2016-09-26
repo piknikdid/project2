@@ -1,0 +1,58 @@
+<doctype!>
+<html>
+    <head>
+        <title>Project1</title>
+        <meta charset="utf-8" />
+         <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div id='content'>
+        <div id='el1'>1</div>
+        <div id='el2'>1</div>
+        <div id='el3'>1</div>
+        <div id='el4'>1</div>
+        <div id='el5'>1</div>
+        <div id='el6'>1</div>
+        <div id='el7'>1</div>
+        <div id='el8'>1</div>
+        <div id='el9'>1</div>
+        <div id='el10'>1</div>
+        <div id='el11'>1</div>
+        <div id='el12'>1</div>
+        <div id='el13'>1</div>
+        <div id='el14'>1</div>
+        <div id='el15'>1</div>
+        <div id='el16'>1</div>
+        <div id='el17'>1</div>
+        <div id='el18'>1</div>
+        <div id='el19'>1</div>
+        <div id='el20'>1</div>
+        <div id='el21'>1</div>
+        <div id='el22'>1</div>
+        <div id='el23'>1</div>
+        <div id='el24'>1</div>
+    </div>
+    
+        <script>
+            var div = document.getElementById('content');
+            var elems = div.getElementsByTagName('*');
+            var delta = Math.PI * 2 / elems.length;
+            var x = 0, y = 0, angle = 0; 
+            for(var i= 0; i < elems.length; i++){               
+               
+                elems[i]= document.getElementById('el'+[i]);
+                elems[i].style.position = 'absolute';
+               elems[i].style.marginLeft =  100 * Math.cos(angle) + 'px';
+                elems[i].style.marginTop = 100 * Math.sin(angle) + 'px';
+                
+                 angle += delta;
+                                                
+            }
+            
+            
+        
+        
+        
+        </script>
+    
+    </body>

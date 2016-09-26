@@ -1,0 +1,16 @@
+body{
+    background: #FF9;
+}
+#content
+{
+    position: absolute;
+    width: 500px;
+    margin: 10 auto;
+    padding: 10 auto;
+}
+div div{
+    border: 1px solid black;
+    width: 30px ;
+    position: static;
+
+}
