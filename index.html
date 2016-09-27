@@ -1,65 +1,75 @@
 <doctype!>
 <html>
-    <head>
-        <title>Project1</title>
-        <meta charset="utf-8" />
-         <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
-    <div id='content'>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        <div class='el'>1</div>
-        
-        <div class='actionButton'>Buttom</div>
-    </div>
+<head>
+    <title>Project1</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+<div id='content'>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='el'></div>
+    <div class='actionButton' ><input type="button" value="GO!" onclick="actionButton()"></div>
+    <div class='actionButton' ><input type="button" value="break" onclick="breakButton()"></div>
+
+</div>
+
+<script>
+    var elems = document.getElementsByClassName('el');
+    var delta = Math.PI * 2 / elems.length;
+    var x = Math.round(document.documentElement.clientWidth / 2);
+    var y = Math.round(document.documentElement.clientHeight / 2);
+    var angle = 0;
+    var spinSpeed = 30;
+    var spinLatency = spinSpeed;
+    var changeElementState = function (el) {
+        return function () {
+            el.classList.add('active');
+            setTimeout(function () {
+                el.classList.remove('active');
+            }, spinLatency);
+        }
+    };
+    var spinElements = function (elems) {
+        for (var i = 0; i < elems.length; i++) {
+            setTimeout(changeElementState(elems[i]), i * spinSpeed);
+        }
+    };
+
+    for (var i = 0; i < elems.length; i++) {
+        elems[i].style.position = 'absolute';
+        elems[i].style.marginLeft = x + 180 * Math.cos(angle) + 'px';
+        elems[i].style.marginTop = y + 180 * Math.sin(angle) + 'px';
+        angle += delta;
+    }
     
-        <script>
-            var div = document.getElementById('content');
-            var elems = document.getElementsByClassName('el');
-            var delta = Math.PI * 2 / elems.length;
-            var x = 20, y = 20, angle = 0; 
-            for(var i= 0; i < elems.length; i++){               
-               
-                
-                elems[i].style.position = 'absolute';
-               elems[i].style.marginLeft =  180 * Math.cos(angle) + 'px';
-                elems[i].style.marginTop = 180 * Math.sin(angle) + 'px';
-                
-                 angle += delta;
-                                                
-            }
-            
-            $('.actionButton').on('click', function(){
-                $(this).toggleClass('active');
-                 $(this).text('Projects Viewed');
-               
-            })
-            
-         
-        
-        
-        
-        </script>
+    function actionButton(){
+        setInterval(function () {
+        spinElements(elems);
+    }, spinSpeed * elems.length);
+    }
     
-    </body>
-    
-    </html>
+  
+
+</body>
+
+</html>
