@@ -1,38 +1,32 @@
-body{
+body {
     background: #FF9;
-    
 }
 
-
-#content
-{
-    
+#content {
     width: 500px;
-    margin: 200px 450px;
-    
+    /*margin: 200px 450px;*/
 }
 
-
-.el{
+.el {
     background: black;
-    background-position: center  top;
+    background-position: center top;
     background-repeat: no-repeat;
     width: 50px;
-    height:50px;
+    height: 50px;
     border-radius: 50px;
 }
 
-.actionButton {
-  
-  background-color: whitesmoke;
-  opacity: 0.9;
-  width: 100px;
-  color: black;
-    margin: -20px;
- font-size: 34px;
+.el.active {
+    background: white;
+}
+
+.actionButton input {
+    background-color: whitesmoke;s
+    opacity: 0.9;
+    color: black;
 }
 
 .active {
-  background-color: #333333;
-  color: whitesmoke;
+    background-color: #333333;
+    color: whitesmoke;
 }
