@@ -28,8 +28,8 @@
     <div class='el'></div>
     <div class='el'></div>
     <div class='el'></div>
+    
     <div class='actionButton' ><input type="button" value="GO!" onclick="actionButton()"></div>
-    <div class='actionButton' ><input type="button" value="break" onclick="breakButton()"></div>
 
 </div>
 
@@ -62,14 +62,26 @@
         angle += delta;
     }
     
+    var intervalID;
+    var a = 0;
+    
     function actionButton(){
-        setInterval(function () {
+        if(a == 0){
+        intervalID = setInterval(function () {
+        a = 1 ;
         spinElements(elems);
-    }, spinSpeed * elems.length);
+        }, spinSpeed * elems.length);
+        }
+        else{
+            a = 0;
+            clearInterval(intervalID);
+            
+        }
     }
     
-  
+</script>
 
 </body>
 
 </html>
+
